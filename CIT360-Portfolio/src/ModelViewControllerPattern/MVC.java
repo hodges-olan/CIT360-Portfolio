@@ -7,6 +7,8 @@
  * allows you to break down the basic functionality of most programs to this separate
  * sections.  This was the same way we split up the game that we created in CIT-260,
  * so it was somewhat familiar to most of us.
+ * I'm working to get the code the Brandon Urednick had so that I can post it to this
+ * note.
  */
 package ModelViewControllerPattern;
 
