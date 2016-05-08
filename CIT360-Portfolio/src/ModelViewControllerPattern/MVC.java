@@ -7,7 +7,7 @@
  * sections.  This was the same way we split up the game that we created in CIT-260,
  * so it was somewhat familiar to most of us.
  */
-package cit360.portfolio;
+package ModelViewControllerPattern;
 
 /**
  *

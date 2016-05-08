@@ -20,7 +20,7 @@
  * 
  * Below is my testing code from the presentation.
  */
-package cit360.portfolio;
+package JUnitTests;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
