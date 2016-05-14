@@ -1,25 +1,3 @@
-/*
- * JUnit Tests
- * 5/7/2016
- * This week was the first week of assignments and I decided to study JUnit Tests more in depth.
- * From the previous CIT 260 class, the JUnit Tests were made so that you could not only verify
- * that your metholodgy was correct, but also that your algorithms were processing correctly.  
- * We would provide a type of truth table for the algorithm so that we could test both the limits
- * of the algorithm, as well as things outside of the expected boundaries to verify that we were
- * passing errors back appropriately to the calling code.  
- * 
- * I found the following link which is JUnits actual website with definitions of the idioms used
- * in JUnit tests.
- * http://junit.org/junit4/
- * The assertions page was the most informative this time, as I was able to see all of the
- * verifications you could imploy with these tests.  Not only could you check to make sure they
- * were the same, but you could also check for null, not null, true, false, contains, etc.
- * 
- * Below is the link to the meeting where I taught regarding JUnit tests.  It starts at 0:33.
- * https://youtu.be/TP41oyVhwxY?t=33s
- * 
- * Below is my testing code from the presentation.
- */
 package JUnitTests;
 
 import org.junit.Test;
