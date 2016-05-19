@@ -6,8 +6,10 @@
 package JSONSerialization;
 
 import com.google.gson.Gson;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 /**
  *
@@ -33,8 +35,10 @@ public class JSONSerialization {
         vehicle2.setVin("5FNRL5H66CB108942");
         
         // Display Vehicle Values
+        System.out.println("Vehicle 1");
         vehicle1.displayVehicle();
         System.out.println("\n");
+        System.out.println("Vehicle 2");
         vehicle2.displayVehicle();
         
         // Create Google GSON Object
@@ -46,19 +50,45 @@ public class JSONSerialization {
         data2 = vehiclesJSON.toJson(vehicle2);
         
         // Display JSON
+        System.out.println("\n\nJSON Serialization of Vehicle Data");
         System.out.println(data1);
         System.out.println(data2);
         
         // Save Serialized Data to File
-        try (FileOutputStream fops = new FileOutputStream("savedfile.json")) {
-            try (ObjectOutputStream output = new ObjectOutputStream(fops)) {
-                output.writeObject(data1);
-                output.writeObject(data2);
-                output.close();
-            }
-            fops.close();
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("savedfile.json"))) {
+            bw.write(data1);
+            bw.newLine();
+            bw.write(data2);
+            bw.close();
+        } catch (Throwable te) {
+            System.out.println("\nException: " + te.toString());
+        } 
+        
+        // Retrieve Serialized Data from File
+        String newData1 = new String();
+        String newData2 = new String();
+        try (BufferedReader br = new BufferedReader(new FileReader("savedfile.json"))) {
+            newData1 = br.readLine();
+            newData2 = br.readLine();
         } catch (Throwable te) {
             System.out.println("\nException: " + te.toString());
         }
+        
+        // Display JSON
+        System.out.println("\n\nJSON Serialized data retrieve from file");
+        System.out.println(newData1);
+        System.out.println(newData2);
+        
+        // Deserialize Vehicles
+        Vehicle newVehicle1 = vehiclesJSON.fromJson(newData1, Vehicle.class);
+        Vehicle newVehicle2 = vehiclesJSON.fromJson(newData2, Vehicle.class);
+        
+        // Display Vehicle Values
+        System.out.println("\n");
+        System.out.println("New Vehicle 1");
+        newVehicle1.displayVehicle();
+        System.out.println("\n");
+        System.out.println("New Vehicle 2");
+        newVehicle2.displayVehicle();
     }
 }
