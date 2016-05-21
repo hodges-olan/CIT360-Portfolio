@@ -39,6 +39,7 @@ public class JUnitTests {
             // Execute and Verify function
             System.out.println("\tTest case #1");
             result = instance.reduceHealthNormal(weapon, strength, armor);
+            assertNotNull(result);
             assertEquals(expResult, result, 0.0);
             
         /********************************
@@ -53,6 +54,7 @@ public class JUnitTests {
             // Execute and Verify function
             System.out.println("\tTest case #2");
             result = instance.reduceHealthNormal(weapon, strength, armor);
+            assertNotNull(result);
             assertEquals(expResult, result, 0.0);
             
         /********************************
@@ -67,6 +69,7 @@ public class JUnitTests {
             // Execute and Verify function
             System.out.println("\tTest case #3");
             result = instance.reduceHealthNormal(weapon, strength, armor);
+            assertNotNull(result);
             assertEquals(expResult, result, 0.0);
             
         /********************************
@@ -81,6 +84,7 @@ public class JUnitTests {
             // Execute and Verify function
             System.out.println("\tTest case #4");
             result = instance.reduceHealthNormal(weapon, strength, armor);
+            assertNotNull(result);
             assertEquals(expResult, result, 0.0);
             
         /********************************
@@ -95,6 +99,7 @@ public class JUnitTests {
             // Execute and Verify function
             System.out.println("\tTest case #5");
             result = instance.reduceHealthNormal(weapon, strength, armor);
+            assertNotNull(result);
             assertEquals(expResult, result, 0.0);
             
         /********************************
@@ -109,6 +114,7 @@ public class JUnitTests {
             // Execute and Verify function
             System.out.println("\tTest case #6");
             result = instance.reduceHealthNormal(weapon, strength, armor);
+            assertNotNull(result);
             assertEquals(expResult, result, 0.0);
             
         /********************************
@@ -123,6 +129,7 @@ public class JUnitTests {
             // Execute and Verify function
             System.out.println("\tTest case #7");
             result = instance.reduceHealthNormal(weapon, strength, armor);
+            assertNotNull(result);
             assertEquals(expResult, result, 0.0);
             
         /********************************
@@ -137,6 +144,7 @@ public class JUnitTests {
             // Execute and Verify function
             System.out.println("\tTest case #8");
             result = instance.reduceHealthNormal(weapon, strength, armor);
+            assertNotNull(result);
             assertEquals(expResult, result, 0.0);
             
         /********************************
@@ -151,6 +159,7 @@ public class JUnitTests {
             // Execute and Verify function
             System.out.println("\tTest case #9");
             result = instance.reduceHealthNormal(weapon, strength, armor);
+            assertNotNull(result);
             assertEquals(expResult, result, 0.0);
             
         /********************************
@@ -165,6 +174,7 @@ public class JUnitTests {
             // Execute and Verify function
             System.out.println("\tTest case #10");
             result = instance.reduceHealthNormal(weapon, strength, armor);
+            assertNotNull(result);
             assertEquals(expResult, result, 0.0);
         
     }
