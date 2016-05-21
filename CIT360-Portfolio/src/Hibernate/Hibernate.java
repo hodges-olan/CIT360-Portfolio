@@ -20,6 +20,7 @@ import org.hibernate.cfg.Configuration;
  */
 public class Hibernate {
    private static SessionFactory factory; 
+   
    public static void main(String[] args) {
       try{
          factory = new Configuration().configure().buildSessionFactory();
@@ -28,15 +29,15 @@ public class Hibernate {
          throw new ExceptionInInitializerError(ex); 
       }
       Hibernate ME = new Hibernate();
-
+      
       /* Add few employee records in database */
       Integer empID1 = ME.addEmployee("Zara", "Ali", 1000);
       Integer empID2 = ME.addEmployee("Daisy", "Das", 5000);
       Integer empID3 = ME.addEmployee("John", "Paul", 10000);
-
+      
       /* List down all the employees */
       ME.listEmployees();
-
+      
       /* Update employee's records */
       ME.updateEmployee(empID1, 5000);
 
@@ -46,6 +47,7 @@ public class Hibernate {
       /* List down new list of the employees */
       ME.listEmployees();
    }
+   
    /* Method to CREATE an employee in the database */
    public Integer addEmployee(String fname, String lname, int salary){
       Session session = factory.openSession();
@@ -63,6 +65,7 @@ public class Hibernate {
       }
       return employeeID;
    }
+   
    /* Method to  READ all the employees */
    public void listEmployees( ){
       Session session = factory.openSession();
@@ -84,6 +87,7 @@ public class Hibernate {
          session.close(); 
       }
    }
+   
    /* Method to UPDATE salary for an employee */
    public void updateEmployee(Integer EmployeeID, int salary ){
       Session session = factory.openSession();
@@ -101,6 +105,7 @@ public class Hibernate {
          session.close(); 
       }
    }
+   
    /* Method to DELETE an employee from the records */
    public void deleteEmployee(Integer EmployeeID){
       Session session = factory.openSession();
