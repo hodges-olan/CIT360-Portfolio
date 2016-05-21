@@ -176,7 +176,39 @@ public class JUnitTests {
             result = instance.reduceHealthNormal(weapon, strength, armor);
             assertNotNull(result);
             assertEquals(expResult, result, 0.0);
-        
+            
+        /********************************
+         * Additional Test Cases
+         */
+            // Below are examples of other test cases found on the following URL
+            // https://github.com/junit-team/junit4/wiki/Assertions
+            
+            // This will be true as the byte array will be identical between the two using the same input of "trial"
+            System.out.println("\tTest case - assertArrayEquals");
+            byte[] expected = "trial".getBytes();
+            byte[] actual = "trial".getBytes();
+            assertArrayEquals(expected, actual);
+            
+            // This will be true, since it is being handed the boolean value of false
+            System.out.println("\tTest case - assertFalse");
+            assertFalse(false);
+            
+            // These will not be the same as they are different instantiations of the class Object
+            System.out.println("\tTest case - assertNotSame");
+            assertNotSame(new Object(), new Object());
+            
+            // This will be true, since it is being handed no value at all
+            System.out.println("\tTest case - assertNull");
+            assertNull(null);
+            
+            // This will be true since you are comparing the exact same object to itself.
+            System.out.println("\tTest case - assertSame");
+            Integer aNumber = 768;
+            assertSame(aNumber, aNumber);
+            
+            // This will be true, since it is being handed the boolean value of true
+            System.out.println("\tTest case - assertTrue");
+            assertTrue(true);
     }
 
     private static class BattleControl {
