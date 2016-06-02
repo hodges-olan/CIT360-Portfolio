@@ -26,7 +26,7 @@ public class ApplicationController {
         hashMapOfCommands.put("-", new Subtract());
     }
     
-    public static void handleCommand(String command, Integer num1, Integer num2) {
+    public void handleCommand(String command, Integer num1, Integer num2) {
         
         HandleMath handler = hashMapOfCommands.get(command);
         
