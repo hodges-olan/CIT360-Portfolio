@@ -16,6 +16,7 @@ public class Vehicle implements Serializable {
     private String model;
     private int year;
     private String vin;
+    private String color;
 
     public String getMake() {
         return make;
@@ -48,11 +49,20 @@ public class Vehicle implements Serializable {
     public void setVin(String vin) {
         this.vin = vin;
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
     
     public void displayVehicle() {
         System.out.printf("%-10s%-25s%n", "Make:", this.make);
         System.out.printf("%-10s%-25s%n", "Model:", this.model);
         System.out.printf("%-10s%-25s%n", "Year:", this.year);
         System.out.printf("%-10s%-25s%n", "VIN:", this.vin);
+        System.out.printf("%-10s%-25s%n", "VIN:", this.color);
     }
 }

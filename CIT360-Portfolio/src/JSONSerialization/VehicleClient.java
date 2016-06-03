@@ -8,16 +8,18 @@ package JSONSerialization;
 import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
  * @author co075oh
  */
-public class JSONSerialization {
-    public static void main (String[] args) throws IOException {
+public class VehicleClient {
+    public static void main (String[] args) throws IOException, InterruptedException {
         
         // Object Declaration
         Vehicle vehicle1 = new Vehicle();
@@ -60,24 +62,26 @@ public class JSONSerialization {
         System.out.println(data1);
         System.out.println(data2);
         
-        // Save Serialized Data to File
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("savedfile.json"))) {
-            bw.write(data1);
-            bw.newLine();
-            bw.write(data2);
-            bw.close();
-        } catch (Throwable te) {
-            System.out.println("\nException: " + te.toString());
-        } 
+        // Save Serialized Data to Server
+        String server = "127.0.0.1";
+        int port = 8888;
+        try (Socket socket = new Socket(server, port);
+                BufferedWriter output = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
+            output.write(data1);
+            output.newLine();
+            output.write(data2);
+        }
         
-        // Retrieve Serialized Data from File
-        String newData1 = new String();
-        String newData2 = new String();
-        try (BufferedReader br = new BufferedReader(new FileReader("savedfile.json"))) {
-            newData1 = br.readLine();
-            newData2 = br.readLine();
-        } catch (Throwable te) {
-            System.out.println("\nException: " + te.toString());
+        // Delay read execution
+        TimeUnit.SECONDS.sleep(1);
+        
+        // Retrieve Serialized Data from Server
+        String newData1;
+        String newData2;
+        try (Socket socket = new Socket(server, port);
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+            newData1 = input.readLine();
+            newData2 = input.readLine();
         }
         
         // Display JSON
