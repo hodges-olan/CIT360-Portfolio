@@ -21,7 +21,6 @@ public class ThreadsExecutorsRunnablesHandlers {
     public static void main(String[] args) {
         
         // Declare attributes
-        ArrayList<Thread> threads = new ArrayList<>();
         ArrayList<Integer> primes = new ArrayList<>();
         int incrementAmount = stop/threadCount;
         int starting = 1;
@@ -29,28 +28,13 @@ public class ThreadsExecutorsRunnablesHandlers {
         // Output starting message
         System.out.println("Spawning threads...");
         
-        // Create Threads
+        // Create and Start Threads
         for (int i = 0; i < threadCount; i++) {
-            threads.add(new Thread(new PrimeThread(starting, starting+incrementAmount, i + ".txt")));
-        }
-        
-        // Start Threads
-        for (Thread thread : threads) {
-            thread.start();
-        }
-        
-        // Declare when each thread is complete.
-        for (int i = 0 ; i < threads.size(); i++) {
-            try {
-                threads.get(i).join();
-                System.out.println("Thread " + i + " finished!");
-            } catch (Exception e) {
-                e.getMessage();
-            }
+            (new Thread(new PrimeThread(starting, starting+incrementAmount, i + ".txt"))).start();
         }
         
         // Combine results from each thread into a single ArrayList
-        for (int i = 0; i < threads.size(); i++) {
+        for (int i = 0; i < threadCount; i++) {
             File f = new File(i+".txt");
             try (Scanner scan = new Scanner(new File(i+".txt"))) {
                 while (scan.hasNextInt()) {
