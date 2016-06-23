@@ -5,16 +5,29 @@
  */
 package Hibernate;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author co075oh
  */
-public class Employee {
+@Entity
+@Table (name="EMPLOYEE")
+public class Employee implements Serializable {
+    @Id
     private int id;
+    @Column (name="firstName")
     private String firstName; 
+    @Column (name="lastName")
     private String lastName;   
+    @Column (name="salary")
     private int salary;  
 
+    // Constructor Methods
     public Employee() {
     }
     
@@ -24,6 +37,7 @@ public class Employee {
         this.salary = salary;
     }
     
+    // Getter and Setter Methods
     public int getId() {
         return id;
     }
