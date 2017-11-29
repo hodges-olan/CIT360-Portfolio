@@ -21,7 +21,7 @@ public class PrimeThread implements Runnable {
     String file;
     
     
-   // Constructor Method
+    // Constructor Method
     public PrimeThread(int startValue, int stopValue, String filename) {
         start = startValue;
         stop = stopValue;
